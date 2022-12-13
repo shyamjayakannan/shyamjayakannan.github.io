@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    background: #3085c8;
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden; /* always do this */
+}
+
+.heading {
+    color: white;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
+
+.gameContainer {
+    display: flex;
+    margin-top: 50px;
+}
+
+#we {
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+
+.container {
+    background: white;
+    border-radius: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 11vw);
+    grid-template-rows: repeat(3, 11vw);
+    position: relative; /* to help line to be absolute wrt it */
+}
+
+.line {
+    position: absolute;
+    top: 2vw;
+    left: 15.7vw;
+    width: 1.5vw;
+    border-radius: 1.5vw;
+    background-color: black;
+    height: 0;
+    transition: height 0.5s;
+    z-index: 1; /* to keep it on top */
+}
+
+.box {
+    cursor: pointer;
+    border: 2px solid #3085c8;
+}
+
+.cross {
+    margin: 20% auto;
+    clip-path: polygon(0 0, 20% 0, 50% 30%, 80% 0, 100% 0, 100% 20%, 70% 50%, 100% 80%, 100% 100%, 80% 100%, 50% 70%, 20% 100%, 0 100%, 0 80%, 30% 50%, 0 20%);
+    background-color: red;
+    border-radius: 20%;
+    width: 60%;
+    height: 60%;
+    visibility: hidden;
+}
+
+.circle {
+    margin: -85% auto;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* to help javascript click event */
+}
+
+.circle div {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.gameInfo {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameInfo h1 {
+    transition: 0.25s;
+}
+
+.begin {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.begin div {
+    opacity: 1;
+    visibility: visible;
+}
+
+.begin h3 {
+    font-size: 30px;
+    margin-left: 10%;
+    text-align: center;
+}
+
+.begin button {
+    height: 100px;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+#cross {
+    padding: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#circle {
+    padding: 0;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#circle div div {
+    background: #3085c8;
+}
+
+.display {
+    display: none;
+}
+
+.display span {
+    position: relative;
+    font-size: 30px;
+    font-weight: bold;
+    top: -2vw; /* since the cross and circle also scale with vw, it will always stay at the correct height */
+}
+
+.display .box {
+    width: 12vw;
+    height: 12vw;
+    display: inline-block;
+}
+
+.display .circle div {
+    background: #3085c8;
+}
+
+.btn {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #0a68b3;
+    color: white;
+    border: none;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+#playAgain {
+    display: none;
+    margin: 0;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* very important for scroll and to bring it on top of other elements */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* to keep it above the line */
+    transition: all 750ms;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden; /* only using opacity 0 wont help as opacity does not remove presence. if this is not done, the button wont be clickable */
+    opacity: 0; /* needed for transition from 0 to 1 in 500ms */
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    height: 25%;
+    position: relative;
+    opacity: 0;
+    transition: 0.75s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h1 {
+    font-size: 20vw;
+}
+
+.popcircle {
+    position: relative;
+    top: -10px;
+    margin-top: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.popup .box {
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.popup span {
+    margin-left: 15px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.popup .btn {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.popup .btn:hover {
+    background-color: #105388;
+    color: white;
+}
+
+.show {
+    transform: translate(0px, 50px);
+    opacity: 1;
+}
+
+.overlay-animation { /* class dded to overlay using javascript */
+    animation: wow 1s;
+}
+
+@keyframes wow {
+    0% {
+        visibility: visible;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.win { /* add this class to overlay on winning */
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 810px) {
+    .line {
+        top: 6vw;
+        left: 36vw;
+        width: 3vw;
+        border-radius: 1.5vw;
+    }
+
+    .gameContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gameInfo {
+        width: 100%;
+        margin-top: 50px;
+        scale: 0.9;
+    }
+
+    .begin h3 {
+        margin: auto;
+    }
+
+    .container {
+        grid-template-columns: repeat(3, 25vw);
+        grid-template-rows: repeat(3, 25vw);
+    }
+
+    .display .box {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .popup {
+        width: 50%;
+    }
+
+    .popup .box {
+        margin: auto;
+        display: block;
+        height: 10vw;
+        width: 10vw;
+    }
+
+    .popcircle {
+        margin-top: 20px;
+    }
+
+    .popup .cross {
+        width: 100%;
+        height: 100%;
+    }
+
+    .popup span {
+        font-size: 5vw;
+    }
+
+    .popup .btn {
+        margin-top: 20px;
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% {
+        background-color: #105388;
+        transform: translate(10px);
+    }
+
+    12.5% {
+        transform: translate(-20px);
+    }
+
+    25% {
+        transform: translate(20px);
+    }
+
+    37.5% {
+        transform: translate(-20px);
+    }
+
+    50% {
+        transform: translate(20px);
+    }
+
+    67.5% {
+        transform: translate(-20px);
+    }
+
+    75% {
+        transform: translate(20px);
+    }
+
+    87.5% {
+        transform: translate(-20px);
+    }
+
+    100% {
+        transform: translate(10px);
+        background: none;
+    }
+}
