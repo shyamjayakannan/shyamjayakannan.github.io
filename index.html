@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TIC TAC TOE</title>
+</head>
+<body>
+    <h1 class="heading">TIC TAC TOE</h1>
+    <div class="gameContainer">
+        <div id="we">
+            <div class="container">
+                <div class="line"></div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box ">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="gameInfo">
+            <h1>Let's Play!</h1>
+            <div class="begin">
+                <h3 id="playerOne">Player one:</h3>
+                <button id="circle"><div class="circle"><div></div></div></button>
+                <button id="cross"><div class="cross"></div></button>
+            </div>
+            <div class="display">
+                <span>Turn of:</span>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <button onclick="reset()" class="btn">Reset</button>
+            </div>
+            <button id="playAgain" class="btn" onclick="reset()">Play Again</button>
+        </div>
+    </div>
+    <div class="overlay">
+        <h1 class="heading">BEGIN!</h1>
+    </div>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <div class="display">
+                <span>The Winner is:</span>
+                <div class="box"></div>
+            </div>
+            <!-- VERY IMPORTANT. BEST WAY ADD ONCLICK EVENT IN HTML ITSELF -->
+            <!-- EXTREEEMELY IMPORTANT. CLOSE IS A RESERVED WORD SO DONT USE IN FUNCTION NAME -->
+            <button onclick="ok()" class="btn">OK</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
