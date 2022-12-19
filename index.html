@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TIC TAC TOE</title>
+</head>
+<body>
+    <h1 class="heading">TIC TAC TOE</h1>
+    <div class="gameContainer">
+        <div id="we">
+            <div class="container">
+                <div class="line"></div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box ">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="gameInfo">
+            <h1>Let's Play!</h1>
+            <div class="begin select">
+                <h3 id="playerOne">Select one:</h3>
+                <button id="circle" class="btn1"><div class="circle"><div></div></div></button>
+                <button id="cross" class="btn1"><div class="cross"></div></button>
+            </div>
+            <div class="begin against">
+                <h3 id="playerOne">Play against:</h3>
+                <button class="btn1"><div class="icon1"><img src="computer_icon.png"></div></button>
+                <div class="divider"></div>
+                <button class="btn1"><div class="icon2"><img src="20299_user_icon.png"></div></button>
+            </div>
+            <div class="begin difficulty">
+                <h3 id="playerOne">Choose Difficulty:</h3>
+                <input type="radio" id="easy" name="same1" checked><label class="btn" for="easy">Easy</label>
+                <div class="divider choose"></div>
+                <input type="radio" id="hard" name="same1"><label class="btn" for="hard">Hard</label>
+            </div>
+            <div class="begin first">
+                <h3 id="playerOne">Who goes first:</h3>
+                <input type="radio" id="computer" name="same2"><label id="comp" class="btn" for="computer">Computer</label>
+                <div class="divider choose"></div>
+                <input type="radio" id="Me" name="same2" checked><label class="btn" for="Me">Me</label>
+            </div>
+            <button id="ready" class="btn">Ready</button>
+            <div id="turner" class="display">
+                <span>Turn of:</span>
+                <div class="box">
+                    <div class="cross"></div>
+                    <div class="circle"><div></div></div>
+                </div>
+                <button onclick="reset()" class="btn">Reset</button>
+            </div>
+            <button id="playAgain" class="btn" onclick="reset()">Play Again</button>
+        </div>
+    </div>
+    <div class="overlay">
+        <h1 class="heading">BEGIN!</h1>
+    </div>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <div class="display">
+                <span>The Winner is:</span>
+                <div class="box"></div>
+            </div>
+            <!-- VERY IMPORTANT. BEST WAY ADD ONCLICK EVENT IN HTML ITSELF -->
+            <!-- EXTREEEMELY IMPORTANT. CLOSE IS A RESERVED WORD SO DONT USE IN FUNCTION NAME -->
+            <button onclick="ok()" class="btn">OK</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
